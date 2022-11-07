@@ -117,3 +117,64 @@ criteria:
    Logical, understandable commit messages are a bonus.
 
 # Good Luck!
+
+# Instructions
+
+## Support Format
+This parser support .json and .ini file
+
+## How to use
+
+### Load files
+The loadConfig class is to load configuration from file
+Multiple files can be load at the same time by putting path in array
+
+### Get Value
+Function get() can be used for getting value from loaded configuration.
+Nested key supported for get() function.
+Null will return if key not exist
+String will return if key exist with no nested key
+Array will return if key exist with further nested key
+
+### Example
+```php
+
+use VickyTsang\Divido\loadConfig;
+require 'vendor/autoload.php';
+
+// load config from json file
+$jsonConfig = new loadConfig(['fixtures/config.json']);
+echo "environment: ";
+echo $jsonConfig->get('environment');
+echo "<br>";
+echo "cache: ";
+print_r($jsonConfig->get('cache'));
+echo "<br>";
+
+// load config from ini file
+$iniConfig = new loadConfig(['fixtures/config.local.ini']);
+echo "environment: ";
+echo $iniConfig->get('environment');
+echo "<br>";
+echo "cache: ";
+print_r($iniConfig->get('cache'));
+echo "<br>";
+
+// merge config
+$jsonConfig->merge($iniConfig);
+echo "environment: ";
+echo $iniConfig->get('environment');
+echo "<br>";
+echo "cache: ";
+print_r($iniConfig->get('cache'));
+echo "<br>";
+
+// load config from multiple file
+$multiConfig = new loadConfig(['fixtures/config.json', 'fixtures/config.local.ini']);
+echo "environment: ";
+echo $iniConfig->get('environment');
+echo "<br>";
+echo "cache: ";
+print_r($iniConfig->get('cache'));
+echo "<br>";
+```
