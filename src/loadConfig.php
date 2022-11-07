@@ -10,6 +10,7 @@ class loadConfig extends config{
     
 	protected $AllParser = [
 		'VickyTsang\Divido\Parser\parseJson',
+		'VickyTsang\Divido\Parser\parseIni',
 	];
 	
     /**
