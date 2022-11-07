@@ -1,0 +1,19 @@
+{
+    "name": "vicky_tsang/divido",
+    "description": "Divido Coding Challenge",
+    "type": "library",
+    "require-dev": {
+        "phpunit/phpunit": "9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "VickyTsang\\Divido\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Vicky Tsang"
+        }
+    ],
+    "require": {}
+}
